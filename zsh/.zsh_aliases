@@ -3,3 +3,7 @@ alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset 
 
 # git as hub (broken completion for now)
 # alias git=hub
+
+
+alias gt="kill $(ps aux | grep 'gitlab-tunnel' | awk '{print $2}');ssh gitlab-tunnel -N &"
+alias gitpush='function _gitpush(){ git config --get remote.origin.url; git add -A; git commit -a -m "$*"; git push; git log --pretty=format:"%C(yellow)%ae  %C(white)%ar %C(yellow)%s" --date=short --since="24 hours ago"}; _gitpush'
