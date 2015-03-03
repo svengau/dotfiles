@@ -1,9 +1,45 @@
 # Aliases
-alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # git as hub (broken completion for now)
 # alias git=hub
 
+alias ls='ls -G'
+alias l='ls -lA'
+alias ll='ls -alhG'
+alias showHiddenfiles='defaults write com.apple.finder AppleShowAllFiles TRUE;killall Finder'
+alias hideHiddenfiles='defaults write com.apple.finder AppleShowAllFiles FALSE;killall Finder'
+alias showLibraryFolder='sudo chflags nohidden ~/Library'
+alias updateLocateDb='sudo /usr/libexec/locate.updatedb'
+
 
 alias gt="kill $(ps aux | grep 'gitlab-tunnel' | awk '{print $2}');ssh gitlab-tunnel -N &"
+
+
+# GIT
 alias gitpush='function _gitpush(){ git config --get remote.origin.url; git add -A; git commit -a -m "$*"; git push; git log --pretty=format:"%C(yellow)%ae  %C(white)%ar %C(yellow)%s" --date=short --since="24 hours ago"}; _gitpush'
+alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# SVN
+#alias svn-add-remove-all='function _svn-add-remove-all() {svn add \`svn stat | grep "?" | cut -d" " -f8 | xargs\`; svn rm \`svn stat | grep "!" | cut -d" " -f8 | xargs\`; }; _svn-add-remove-all'
+#svn_fix_delete()       { svn st | grep '^!' | awk '{print $2}' | xargs svn delete --force; }
+#svn_fix_add()       { svn st | grep '^?' | awk '{print $2}' | xargs svn add; }
+
+
+# SSH shortcuts
+ssh_apache()     { ssh -p 6666 www-data@ovhapache.playadz.com; }
+ssh_db()         { ssh -p 6666 www-data@ovhdb.playadz.com; }
+ssh_svn()        { ssh -p 6666 www-data@svn.playadz.com; }
+
+
+MYSQL_HOME=/opt/local/lib/mysql5
+alias stop_mysql='sudo $MYSQL_HOME/bin/mysqladmin shutdown'
+alias start_mysql='sudo $MYSQL_HOME/bin/mysqld_safe &'
+restart_MYSQL() { sudo killall mysql; sudo /Library/StartupItems/MySQL/MySQL start; }
+
+alias stop_apache='sudo killall httpd;'
+alias start_apache='sudo killall httpd; sudo apachectl -k restart;'
+
+
+# Projects shortcuts
+cdw()       { cd /workspace/iwecloud/website/$1; pwd; }
+cdw2()      { cd /workspace/iwecloud/website2/$1; pwd; }

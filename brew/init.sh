@@ -1,17 +1,30 @@
 #/bin/zsh
 
+#
+# DOC https://gist.github.com/workmad3/6248445
+#
+
 echo "check brew..."
 
-#ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-brew update && brew upgrade
+
+if ! which gcc &> /dev/null; then
+  echo "Please install OSX command line development tools"
+  exit 1
+fi
+
+if ! which brew; &> /dev/null; then
+	ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+fi
 
 brew tap homebrew/dupes
 brew tap homebrew/versions
 
+brew update && brew upgrade
+
 #brew upgrade
 
 brew install zsh zsh-completions zsh-lovers zsh-syntax-highlighting
-sudo bash -c "echo /usr/local/bin/zsh >> /etc/shells"
+#sudo bash -c "echo /usr/local/bin/zsh >> /etc/shells"
 
 brew install asciidoc
 brew install git git-crypt git-flow gist
@@ -45,22 +58,7 @@ brew install nginx
 #ln -sfv /usr/local/opt/varnish/*.plist ~/Library/LaunchAgents
 #launchctl load ~/Library/LaunchAgents/homebrew.mxcl.varnish.plist
 
-
-# BREW CASK
-brew install caskroom/cask/brew-cask
-brew cask install --appdir="/Applications" skype
-brew cask install --appdir="/Applications" google-chrome
-brew cask install --appdir="/Applications" alfred
-open ~/Applications/Alfred\ 2.app
-brew cask alfred link
-brew cask install --appdir="/Applications" textwrangler
-brew cask install --appdir="/Applications" dropbox
-brew cask install --appdir="/Applications" virtualbox vagrant
-brew cask install --appdir="/Applications" jeromelebel-mongohub
-
-#brew cask install --appdir="/Applications" spotify lastfm
-#brew cask install --appdir="/Applications" iterm2
-
 ./brew/brew_node.sh
+./brew/brew_cask.sh
 
 brew cleanup
