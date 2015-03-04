@@ -10,6 +10,7 @@ brew install caskroom/cask/brew-cask
 brew cask install --appdir="/Applications" google-chrome
 brew cask install --appdir="/Applications" jeromelebel-mongohub
 
+brew cask install --appdir="/Applications" atom
 brew cask install --appdir="/Applications" alfred
 brew cask install --appdir="/Applications" caffeine
 brew cask install --appdir="/Applications" dropbox
@@ -30,7 +31,6 @@ brew cask install --appdir="/Applications" transmission
 brew cask install --appdir="/Applications" vagrant
 brew cask install --appdir="/Applications" virtualbox
 brew cask install --appdir="/Applications" vlc
-
 
 open ~/Applications/Alfred\ 2.app
 brew cask alfred link
