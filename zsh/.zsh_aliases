@@ -20,7 +20,7 @@ alias gitpush='function _gitpush(){ git config --get remote.origin.url; git add 
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # DEV
-alias eslint_all='git ls-files --other --modified --exclude-standard|while read filename; do  eslint $filename  --rulesdir=/workspace/iwecloud/website/iwe-ui/support/eslint-rules;  done'
+alias eslint_all='git ls-files --other --modified --exclude-standard|grep .js$|while read filename; do  eslint $filename  --rulesdir=/workspace/iwecloud/website/iwe-ui/support/eslint-rules;  done'
 
 # SVN
 #alias svn-add-remove-all='function _svn-add-remove-all() {svn add \`svn stat | grep "?" | cut -d" " -f8 | xargs\`; svn rm \`svn stat | grep "!" | cut -d" " -f8 | xargs\`; }; _svn-add-remove-all'
