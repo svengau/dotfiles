@@ -27,7 +27,7 @@ brew install zsh zsh-completions zsh-lovers zsh-syntax-highlighting
 #sudo bash -c "echo /usr/local/bin/zsh >> /etc/shells"
 
 brew install asciidoc
-brew install git git-crypt git-flow gist
+brew install git git-crypt git-flow gist ungit
 brew install hub
 brew install python
 brew install sbt
@@ -42,6 +42,8 @@ brew install ruby
 brew install heroku-toolbelt
 brew install cloudbees-sdk
 brew install wget
+brew install dos2unix
+brew install siege
 
 # Databases
 brew install mysql

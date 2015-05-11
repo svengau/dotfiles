@@ -20,7 +20,12 @@ alias gitpush='function _gitpush(){ git config --get remote.origin.url; git add 
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # DEV
-alias eslint_all='git ls-files --other --modified --exclude-standard|grep .js$|while read filename; do  eslint $filename  --rulesdir=/workspace/iwecloud/website/iwe-ui/support/eslint-rules;  done'
+#alias eslint_all='git ls-files --other --modified --exclude-standard|grep .js$|while read filename; do  eslint $filename  --rulesdir=/workspace/iwecloud/website/iwe-ui/support/eslint-rules;  done'
+alias eslint_all='git ls-files --other --modified --exclude-standard|grep .js$|while read filename; do  eslint $filename;  done'
+alias jsonlint_all='git ls-files --other --modified --exclude-standard|grep .json$|while read filename; do jsonlint -cq $filename;  done'
+alias lint_all='eslint_all; jsonlint_all;'
+alias mocha='function _mocha() { NODE_ENV=test node_modules/mocha/bin/mocha --timeout 6000 -R spec $* }; _mocha'
+alias karma='function _karma() { node_modules/karma/bin/karma start karma-unit.conf.js --log-level debug --single-run $* }; _karma'
 
 # SVN
 #alias svn-add-remove-all='function _svn-add-remove-all() {svn add \`svn stat | grep "?" | cut -d" " -f8 | xargs\`; svn rm \`svn stat | grep "!" | cut -d" " -f8 | xargs\`; }; _svn-add-remove-all'
@@ -42,7 +47,9 @@ restart_MYSQL() { sudo killall mysql; sudo /Library/StartupItems/MySQL/MySQL sta
 alias stop_apache='sudo killall httpd;'
 alias start_apache='sudo killall httpd; sudo apachectl -k restart;'
 
-
 # Projects shortcuts
-cdw()       { cd /workspace/iwecloud/website/$1; pwd; }
-cdw2()      { cd /workspace/iwecloud/website2/$1; pwd; }
+alias cdw='function _cdw() {cd /workspace/iwecloud/website/$1; pwd;}; _cdw'
+alias core='cd /workspace/iwecloud/website/iwe-core; pwd;'
+alias ui='cd /workspace/iwecloud/website/iwe-ui; pwd;'
+alias apps='cd /workspace/iwecloud/website/iwe-apps; pwd;'
+alias api='cd /workspace/iwecloud/website/iwe-api; pwd;'

@@ -16,7 +16,7 @@ brew cask install --appdir="/Applications" caffeine
 brew cask install --appdir="/Applications" dropbox
 brew cask install --appdir="/Applications" firefox
 brew cask install --appdir="/Applications" firefox-aurora
-brew cask install --appdir="/Applications" gitx-l
+brew cask install --appdir="/Applications" laullon-gitx
 brew cask install --appdir="/Applications" growlnotify
 brew cask install --appdir="/Applications" iterm2
 #brew cask install --appdir="/Applications" omni-graffle-pro
@@ -34,4 +34,3 @@ brew cask install --appdir="/Applications" vlc
 
 open ~/Applications/Alfred\ 2.app
 brew cask alfred link
-
