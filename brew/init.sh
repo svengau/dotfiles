@@ -44,6 +44,7 @@ brew install cloudbees-sdk
 brew install wget
 brew install dos2unix
 brew install siege
+brew install graphviz
 
 # Databases
 brew install mysql

@@ -1,5 +1,7 @@
 # Aliases
 
+alias rm='function _fn() { mv -v $* ~/.Trash/}; _fn'
+
 # git as hub (broken completion for now)
 # alias git=hub
 
@@ -20,8 +22,11 @@ alias gitpush='function _gitpush(){ git config --get remote.origin.url; git add 
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # DEV
-#alias eslint_all='git ls-files --other --modified --exclude-standard|grep .js$|while read filename; do  eslint $filename  --rulesdir=/workspace/iwecloud/website/iwe-ui/support/eslint-rules;  done'
+#alias eslint_all='git ls-files --other --modified --exclude-standard|grep .js$|while read filename; do  eslint $filename  --rulesdir=/workspace/iwecloud/iwe-ui/support/eslint-rules;  done'
 alias eslint_all='git ls-files --other --modified --exclude-standard|grep .js$|while read filename; do  eslint $filename;  done'
+
+alias eslint_all_not_master='git --no-pager  show  --oneline HEAD --name-only --not master|grep .js$|sort|uniq|while read filename; do  eslint $filename;  done'
+
 alias jsonlint_all='git ls-files --other --modified --exclude-standard|grep .json$|while read filename; do jsonlint -cq $filename;  done'
 alias lint_all='eslint_all; jsonlint_all;'
 alias mocha='function _mocha() { NODE_ENV=test node_modules/mocha/bin/mocha --timeout 6000 -R spec $* }; _mocha'
@@ -48,8 +53,11 @@ alias stop_apache='sudo killall httpd;'
 alias start_apache='sudo killall httpd; sudo apachectl -k restart;'
 
 # Projects shortcuts
-alias cdw='function _cdw() {cd /workspace/iwecloud/website/$1; pwd;}; _cdw'
-alias core='cd /workspace/iwecloud/website/iwe-core; pwd;'
-alias ui='cd /workspace/iwecloud/website/iwe-ui; pwd;'
-alias apps='cd /workspace/iwecloud/website/iwe-apps; pwd;'
-alias api='cd /workspace/iwecloud/website/iwe-api; pwd;'
+alias a=atom
+alias cdw='function _cdw() {cd /workspace/iwecloud/$1; pwd;}; _cdw'
+alias core='cd /workspace/iwecloud/iwe-core; pwd;'
+alias ui='cd /workspace/iwecloud/iwe-ui; pwd;'
+alias apps='cd /workspace/iwecloud/iwe-apps; pwd;'
+alias api='cd /workspace/iwecloud/iwe-api; pwd;'
+alias ops='cd /workspace/iwecloud/ops; pwd;'
+alias starter='cd /workspace/iwecloud/app-starter; pwd;'

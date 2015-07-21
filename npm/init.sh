@@ -10,6 +10,8 @@ npm search                                                          # init local
 npm -g install gulp
 npm install -g grunt-cli
 npm install -g bower
+npm install -g webpack
+npm install webpack-dev-server -g
 
 # YO
 npm install -g yo
@@ -18,12 +20,16 @@ npm install -g generator-angular
 npm install -g generator-angular-fullstack
 npm install -g generator-react-webpack
 npm install -g generator-sails-angular
+npm install -g generator-gulp-webapp
+npm install -g generator-gulp-angular
 
 npm install -g uglify-js
 npm install -g uglifycss
 npm install -g less
 npm install -g coffee
 npm install -g coffee-script
+
+npm install -g browser-sync
 
 npm install -g karma
 npm install -g casperjs

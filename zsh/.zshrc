@@ -47,7 +47,7 @@ ZSH_THEME="robbyrussell" # sorin
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -61,9 +61,20 @@ plugins=(git symfony2 bower brew dircycle encode64 gem git-fast git-extras gradl
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/sbin:/opt/local/lib/mysql55/bin:/workspace/playadz/admin/mac/scripts"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH=""
+export PATH="$PATH:/opt/local/bin"
+export PATH="$PATH:/opt/local/sbin"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:/bin"
+export PATH="$PATH:/usr/sbin"
+export PATH="$PATH:/sbin"
+export PATH="$PATH:/opt/X11/bin"
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/opt/local/lib/mysql55/bin"
+export PATH="$PATH:/workspace/playadz/admin/mac/scripts"
+export PATH="$PATH:/Users/sven/Copy/scripts"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
